@@ -23,6 +23,7 @@ This project provides a lightweight, hardware-independent mesh networking layer 
 - Agricultural monitoring
 - Smart building automation
 - Disaster recovery communications
+- Custom data packets
 
 ## Supported Hardware
 

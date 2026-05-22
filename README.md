@@ -317,9 +317,6 @@ Contributions welcome! Please:
 - [ ] Web-based network visualizer
 - [ ] Support for additional radio modules
 
-## License
-
-MIT License - see [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
 

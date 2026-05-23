@@ -3,7 +3,6 @@
 #include <cstddef>
 #include <cstdint>
 
-#include "Config/board_user_config.h"
 
 // Channel and discovery timing (must match across all nodes).
 static constexpr uint8_t ESPNOW_CHANNEL = 6;
@@ -14,11 +13,8 @@ static constexpr uint32_t FORWARD_DELAY_MAX_MS = 90;
 static constexpr size_t SEEN_MESSAGE_CACHE_SIZE = 24;
 
 
-// GPIO pins — all defined in board_user_config.h, edit that file for your hardware.
-
-#ifndef BAD_STATUS_PIN
-#define BAD_STATUS_PIN 9
-#endif
+// GPIO pins — access via BoardConfig::getInstance()
+// Example: int pin = BoardConfig::getInstance().getGoodStatusPin();
 
 #ifndef ONBOARD_LED_ACTIVE_HIGH
 #define ONBOARD_LED_ACTIVE_HIGH 1

@@ -77,3 +77,9 @@ main/idf_component.yml
 =======
 idf_component.yml
 >>>>>>> 4dca9a80671831aa0cd6913b86d0ba369892392b
+.kiro/specs/board-pin-configuration-fix/bugfix.md
+
+.kiro/specs/board-pin-configuration-fix/.config.kiro
+.kiro/specs/board-pin-configuration-fix/design.md
+.kiro/specs/board-pin-configuration-fix/tasks.md
+RELEASE_NOTES_v2.2.0.md

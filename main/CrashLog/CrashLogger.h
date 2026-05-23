@@ -5,8 +5,8 @@
 #include <LittleFS.h>
 #include <esp_system.h>
 
-#define CRASH_LOG_FILE   "/crash_log.txt"
-#define CRASH_COUNT_FILE "/crash_count.txt"
+#define CRASH_LOG_FILE   "/littlefs/crash_log.txt"
+#define CRASH_COUNT_FILE "/littlefs/crash_count.txt"
 #define MAX_LOG_SIZE 10000
 
 class CrashLogger {

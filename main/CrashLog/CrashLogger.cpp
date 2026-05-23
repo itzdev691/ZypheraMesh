@@ -315,7 +315,7 @@ void CrashLogger::rotateLogs() {
     if (size <= MAX_LOG_SIZE) return;
 
     File oldFile = LittleFS.open(CRASH_LOG_FILE, FILE_READ);
-    File newFile = LittleFS.open("/crash_log_tmp.txt", FILE_WRITE);
+    File newFile = LittleFS.open("/littlefs/crash_log_tmp.txt", FILE_WRITE);
 
     if (oldFile && newFile) {
         oldFile.seek(size - MAX_LOG_SIZE / 2);
@@ -330,6 +330,6 @@ void CrashLogger::rotateLogs() {
         oldFile.close();
         newFile.close();
         LittleFS.remove(CRASH_LOG_FILE);
-        LittleFS.rename("/crash_log_tmp.txt", CRASH_LOG_FILE);
+        LittleFS.rename("/littlefs/crash_log_tmp.txt", CRASH_LOG_FILE);
     }
 }

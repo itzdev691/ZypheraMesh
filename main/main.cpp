@@ -9,6 +9,8 @@
 #include "Status/onboard_led.h"
 #include "CrashLog/CrashLogger.h"
 #include <esp_task_wdt.h>
+#include "Config/BoardConfig.h"
+
 
 CrashLogger crashLogger;
 
@@ -30,15 +32,24 @@ void setup() {
   
   Serial.println("\n\n=== ZypheraMesh Boot ===");
   
+ // Get board configuration
+auto& config = BoardConfig::getInstance();
+Serial.printf("Detected chip: %s\n", config.getDetectedChip().c_str());
+Serial.printf("GOOD_STATUS_PIN: GPIO %d\n", config.getGoodStatusPin());
+Serial.printf("BAD_STATUS_PIN: GPIO %d\n", config.getBadStatusPin());
+Serial.printf("ONBOARD_LED_PIN: GPIO %d\n", config.getOnboardLedPin());
+
+  
   // Initialize crash logger FIRST - before watchdog
   Serial.println("Initializing crash logger...");
   crashLogger.begin();
   
   
   Serial.println("System ready");
-  pinMode(STATUS_BUTTON_PIN, INPUT_PULLDOWN);
-  pinMode(BAD_STATUS_PIN, INPUT_PULLDOWN);
+  pinMode(config.getGoodStatusPin(), INPUT_PULLDOWN);
+pinMode(config.getBadStatusPin(), INPUT_PULLDOWN);
 
+  
   Serial.println("Configuring WiFi...");
   
   configureWiFi();
@@ -76,14 +87,12 @@ void setup() {
     renderDisplay();
   }
 
-
   Serial.printf("MAC: %s\n", macToString(selfMac).c_str());
   Serial.printf("Node ID: %s\n", selfNodeId);
-  Serial.printf("Good status pin: GPIO %u\n", STATUS_BUTTON_PIN);
-  Serial.printf("Bad status pin: GPIO %u\n", BAD_STATUS_PIN);
-  Serial.printf("Onboard LED pin: GPIO %u\n", ONBOARD_LED_PIN);
-  Serial.printf("OLED SDA: GPIO %u, SCL: GPIO %u\n", OLED_SDA_PIN, OLED_SCL_PIN);
-  Serial.printf("Press GPIO %u for Good, GPIO %u for Bad\n", STATUS_BUTTON_PIN, BAD_STATUS_PIN);
+ Serial.printf("Good status pin: GPIO %u\n", config.getGoodStatusPin());
+Serial.printf("Bad status pin: GPIO %u\n", config.getBadStatusPin());
+Serial.printf("Onboard LED pin: GPIO %u\n", config.getOnboardLedPin());
+
   Serial.printf("Free heap: %u bytes\n", ESP.getFreeHeap());
 
   esp_task_wdt_reset();

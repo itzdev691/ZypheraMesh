@@ -29,7 +29,7 @@ static bool probeI2CAddress(uint8_t address) {
 }
 
 bool initDisplay() {
-  Wire.begin(OLED_SDA_PIN, OLED_SCL_PIN);
+  Wire.begin();
   Wire.setClock(100000);
   Wire.setTimeout(500);  // ← add this, increase from default 50ms
   delay(50);

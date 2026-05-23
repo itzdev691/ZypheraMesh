@@ -83,3 +83,4 @@ idf_component.yml
 .kiro/specs/board-pin-configuration-fix/design.md
 .kiro/specs/board-pin-configuration-fix/tasks.md
 RELEASE_NOTES_v2.2.0.md
+RELEASE_NOTES_v3.0.0.md

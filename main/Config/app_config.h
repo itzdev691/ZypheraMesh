@@ -3,7 +3,6 @@
 #include <cstddef>
 #include <cstdint>
 
-#include "Config/board_user_config.h"
 
 // Channel and discovery timing (must match across all nodes).
 static constexpr uint8_t ESPNOW_CHANNEL = 6;
@@ -14,34 +13,8 @@ static constexpr uint32_t FORWARD_DELAY_MAX_MS = 90;
 static constexpr size_t SEEN_MESSAGE_CACHE_SIZE = 24;
 
 
-// GPIO pins — overrides via build_flags per board (optional).
-#ifndef STATUS_BUTTON_PIN
-#define STATUS_BUTTON_PIN 12
-#endif
-
-#ifndef BAD_STATUS_PIN
-#define BAD_STATUS_PIN 9
-#endif
-
-#ifndef ONBOARD_LED_PIN
-#if defined(BOARD_ESP32_S3_ZERO)
-#define ONBOARD_LED_PIN 21
-#elif defined(LED_BUILTIN)
-#define ONBOARD_LED_PIN LED_BUILTIN
-#elif defined(BOARD_ESP32_DOIT)
-#define ONBOARD_LED_PIN 2
-#else
-#define ONBOARD_LED_PIN 2
-#endif
-#endif
-
-#ifndef ONBOARD_LED_USES_NEOPIXEL
-#if defined(BOARD_ESP32_S3_ZERO)
-#define ONBOARD_LED_USES_NEOPIXEL 1
-#else
-#define ONBOARD_LED_USES_NEOPIXEL 0
-#endif
-#endif
+// GPIO pins — access via BoardConfig::getInstance()
+// Example: int pin = BoardConfig::getInstance().getGoodStatusPin();
 
 #ifndef ONBOARD_LED_ACTIVE_HIGH
 #define ONBOARD_LED_ACTIVE_HIGH 1
@@ -62,4 +35,4 @@ static constexpr uint8_t OLED_HEIGHT = 64;
 static constexpr int8_t OLED_RESET_PIN = -1;
 
 static constexpr size_t MAX_PEERS = 10;
-static constexpr uint32_t PEER_TIMEOUT_MS = 30000;
+static constexpr uint32_t PEER_TIMEOUT_MS = 60000;  // 12× DISCOVERY_INTERVAL_MS

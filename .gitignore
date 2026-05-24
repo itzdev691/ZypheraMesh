@@ -55,4 +55,32 @@ compile_commands.json
 scripts/fix_riscv_toolchain.py
 scripts/__pycache__/fix_riscv_toolchain.cpython-314.pyc
 main/idf_component.yml.orig
+<<<<<<< HEAD
+.kiro/specs/peer-count-flapping/tasks.md
+.kiro/specs/peer-count-flapping/.config.kiro
+.kiro/specs/peer-count-flapping/design.md
+.kiro/specs/peer-count-flapping/bugfix.md
+.kiro/specs/multi-channel-mesh/design.md
+
+.kiro/specs/multi-channel-mesh/.config.kiro
+test/BUG_CONDITION_TEST_RESULTS.md
+test/CHECKPOINT_TEST_RESULTS.md
+test/README.md
+test
+test/test_preservation.cpp
+RELEASE_NOTES_PEER_COUNT_FIX.md
+BUGFIX_IMPLEMENTATION_SUMMARY.md
+<<<<<<< HEAD
+=======
 main/idf_component.yml
+>>>>>>> origin/main
+=======
+idf_component.yml
+>>>>>>> 4dca9a80671831aa0cd6913b86d0ba369892392b
+.kiro/specs/board-pin-configuration-fix/bugfix.md
+
+.kiro/specs/board-pin-configuration-fix/.config.kiro
+.kiro/specs/board-pin-configuration-fix/design.md
+.kiro/specs/board-pin-configuration-fix/tasks.md
+RELEASE_NOTES_v2.2.0.md
+RELEASE_NOTES_v3.0.0.md

@@ -3,6 +3,7 @@
 #include <Arduino.h>
 
 #include "Config/app_config.h"
+#include "Config/BoardConfig.h"
 #include "Display/oled_ui.h"
 #include "Status/status_ping.h"
 
@@ -28,8 +29,12 @@ static void broadcastStatus(const char* label, const char* displayStatus, const 
 }
 
 void handleStatusInputs() {
-  const bool reading = digitalRead(STATUS_BUTTON_PIN);
-  const bool badReading = digitalRead(BAD_STATUS_PIN);
+  // Cache pins as static variables for performance (called frequently)
+  static int good_pin = BoardConfig::getInstance().getGoodStatusPin();
+  static int bad_pin = BoardConfig::getInstance().getBadStatusPin();
+  
+  const bool reading = digitalRead(good_pin);
+  const bool badReading = digitalRead(bad_pin);
 
   if (reading != lastButtonReading) {
     lastButtonChangeMs = millis();

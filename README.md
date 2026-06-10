@@ -1,3 +1,7 @@
+# THIS PROJECT IS DECREMATED
+## ZypheraMesh is now officially deprecated in favor of our completely redesigned architecture.
+### Still the same goal, just restarting on this entirely.
+
 # ZypheraMesh
 
 A radio-agnostic decentralized mesh networking stack for embedded systems, enabling robust peer-to-peer communication across diverse hardware platforms.
